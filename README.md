@@ -19,8 +19,8 @@ Download expo client app from play store to open the application in your mobile.
 
 Connect your mobile to the laptop using usb cable
 
-Run npm start in the laptop
+Run npm start in the laptop. The app will be successfully run and a qr code will be generated
 
-Scan the qr code in mobile using expo app 
+Scan the qr code that is displayed on the laptop using expo app in your mobile
 
 The app will be opened and can be used for capturing images
