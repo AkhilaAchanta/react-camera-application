@@ -4,7 +4,7 @@ The application captures a camera image and navigates to a new page to show the 
 
 When user clicks on the flip button . The camera view navigates from front to back.
 
-User click on the capture button at the center of the bottom of the screen. 
+User can click on the capture button at the center of the bottom of the screen to capture image
 
 Steps to run the project:
 
