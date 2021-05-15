@@ -5,40 +5,33 @@ import { Camera } from 'expo-camera';
 import * as FaceDetector from 'expo-face-detector';
 import { useIsFocused } from '@react-navigation/native';
 export const CameraApp = ({ navigation }) => {
-
+  // State hooks for taking permission and setting camera
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null)
   const [type, setType] = useState(Camera.Constants.Type.back);
   let capturedPhoto = '';
   const isFocused = useIsFocused();
- useEffect(() => {
+  useEffect(() => {
         (async () => {
                const { status } = await Camera.requestPermissionsAsync();
                setHasPermission(status === 'granted');
-     })();
-     }, []);
-      if (hasPermission === null) {
-            return <View />;
-      }
-      if (hasPermission === false) {
-           return <Text>No access to camera</Text>;
-      }
-     return (
-           <View style={{ flex: 1 }}>
+        })();
+  }, []);
+  if (hasPermission === null) {
+      return <View />;
+  }
+  if (hasPermission === false) {
+      return <Text>No access to camera</Text>;
+  }
+  return (
+    <View style={{ flex: 1 }}>
  
-            {isFocused  &&
-                 <Camera style={{ flex: 1 }} type={type} ref={ref => {
+    {isFocused  &&
+     <Camera style={{ flex: 1 }} type={type} ref={ref => {
                   setCameraRef(ref) ;
-             }}>
-
-           <View
-                 style={{
-                 flex: 1,
-                backgroundColor: 'transparent',
-                justifyContent: 'flex-end'
-           }}>
-           <TouchableOpacity
-            style={{
+    }}>
+    <View style={{ flex: 1,backgroundColor: 'transparent', justifyContent: 'flex-end'}}>
+      <TouchableOpacity style={{
               flex: 0.1,
               alignSelf: 'flex-end'
             }}
@@ -51,7 +44,7 @@ export const CameraApp = ({ navigation }) => {
             }}>
             <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{alignSelf: 'center'}} onPress={async() => {
+          <TouchableOpacity style={{alignSelf: 'center'}}   onPress={async() => {
             if(cameraRef){
               let photo = await cameraRef.takePictureAsync();
               navigation.navigate({
