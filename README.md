@@ -1,6 +1,6 @@
 # react-camera-application
 
-The application capturues a camera image and navigates to a new page to show the image captured.
+The application captures a camera image and navigates to a new page to show the image captured.
 
 When user clicks on the flip button . The camera view navigates from front to back.
 
